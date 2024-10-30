@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function WeatherCard({ weather, fetchWeather }) {
+function WeatherCard({ weather, fetchWeather, error }) {
     const [location, setLocation] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -29,6 +29,7 @@ function WeatherCard({ weather, fetchWeather }) {
                         value={location}
                         onChange={(e) => setLocation(e.target.value)}
                         onKeyDown={handleKeyPress}
+                        spellCheck="false"
                     />
                     <button className="search-btn" onClick={handleSearch}>
                         <i className="fas fa-search"></i>
@@ -36,6 +37,8 @@ function WeatherCard({ weather, fetchWeather }) {
                 </div>
                 {loading ? (
                     <p>Loading...</p>
+                ) : error ? (
+                    <p className="text-danger">{error}</p>
                 ) : weather ? (
                     <>
                         <div className="weather-icon">

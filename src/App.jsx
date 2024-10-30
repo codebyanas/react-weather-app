@@ -49,8 +49,7 @@ function App() {
   return (
     <div className="App container">
       <h2 className="my-4 para text-center">Weather Checker</h2>
-      {error && <p className="text-danger">{error}</p>}
-      <WeatherCard weather={weather} fetchWeather={fetchWeather} />
+      <WeatherCard weather={weather} fetchWeather={fetchWeather} error={error} />
     </div>
   );
 }
